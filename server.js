@@ -32,7 +32,7 @@ app.get('/off',function (req,res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.send({ express: "off" });
+        res.send({ express: stdout });
 
       }
       catch(e){console.error(e);}
@@ -53,7 +53,7 @@ app.get('/on',function (req,res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.send({ express: "on" });
+        res.send({ express: stdout });
 
       }
       catch(e){console.error(e);}
