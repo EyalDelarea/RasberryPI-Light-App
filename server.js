@@ -7,7 +7,7 @@ const { exec } = require("child_process");
 const script_path  = '/home/pi/RasberryPI-Light-App/projector_'
 
 
-
+//comment
 app.use(cors());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '/build')));
