@@ -7,16 +7,6 @@ const {exec} = require("child_process");
 const script_path = '/home/pi/RasberryPI-Light-App/projector_'
 
 
-function stingyAnswer(answer){
-
-    if(answer ==='0')
-        return 'on'
-    else
-        return 'off'
-
-}
-
-
 app.use(cors());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '/build')));
@@ -88,8 +78,8 @@ app.get('/get_state', function (req, res) {
             }
             console.log(`stdout: ${stdout}`);
 
-            answer = stingyAnswer(stdout);
-            res.send({express:answer})
+
+            res.send({express:stdout})
 
         } catch (e) {
             console.error(e);
