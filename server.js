@@ -4,7 +4,7 @@ const port = process.env.PORT || 5000;
 var path = require('path');
 var cors = require('cors')
 const { exec } = require("child_process");
-const script_path  = '/home/pi/light-app/projector_'
+const script_path  = '/home/pi/RasberryPI-Light-App/projector_'
 
 
 
@@ -19,7 +19,7 @@ app.get("/",function (req,res) {
 app.listen(port, () => console.log(`Server is running on port : ${port}`));
 
 
-app.get('/projector_off',function (req,res) {
+app.get('/off',function (req,res) {
 
     exec(script_path+"off.sh", (error, stdout, stderr) => {
         try{
@@ -32,12 +32,12 @@ app.get('/projector_off',function (req,res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.send({ express: stdout });
+        res.send({ express: "off" });
 
       }
       catch(e){console.error(e);}
       })
-    res.send({express:"OFF"})
+    res.send({express:"off"})
 })
 
 app.get('/on',function (req,res) {
@@ -53,12 +53,12 @@ app.get('/on',function (req,res) {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        res.send({ express: stdout });
+        res.send({ express: "on" });
 
       }
       catch(e){console.error(e);}
       })
-    res.send({express:"ON"})
+    res.send({express:"on"})
 })
 
 
