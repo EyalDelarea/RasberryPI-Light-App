@@ -19,7 +19,7 @@ app.get("/",function (req,res) {
 app.listen(port, () => console.log(`Server is running on port : ${port}`));
 
 
-app.get('/off',function (req,res) {
+app.get('/projector_off',function (req,res) {
 
     exec(script_path+"off.sh", (error, stdout, stderr) => {
         try{
@@ -33,7 +33,7 @@ app.get('/off',function (req,res) {
         }
         console.log(`stdout: ${stdout}`);
         res.send({ express: stdout });
-    
+
       }
       catch(e){console.error(e);}
       })
@@ -54,7 +54,7 @@ app.get('/on',function (req,res) {
         }
         console.log(`stdout: ${stdout}`);
         res.send({ express: stdout });
-    
+
       }
       catch(e){console.error(e);}
       })
